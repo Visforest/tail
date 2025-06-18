@@ -5,13 +5,13 @@ package watch
 
 import (
 	"fmt"
+	"github.com/visforest/tail/tomb"
 	"os"
 	"path/filepath"
 
-	"github.com/hpcloud/tail/util"
+	"github.com/visforest/tail/util"
 
-	"gopkg.in/fsnotify/fsnotify.v1"
-	"gopkg.in/tomb.v1"
+	"github.com/fsnotify/fsnotify"
 )
 
 // InotifyFileWatcher uses inotify to monitor file changes.
@@ -104,7 +104,7 @@ func (fw *InotifyFileWatcher) ChangeEvents(t *tomb.Tomb, pos int64) (*FileChange
 				changes.NotifyDeleted()
 				return
 
-			//With an open fd, unlink(fd) - inotify returns IN_ATTRIB (==fsnotify.Chmod)
+			// With an open fd, unlink(fd) - inotify returns IN_ATTRIB (==fsnotify.Chmod)
 			case evt.Op&fsnotify.Chmod == fsnotify.Chmod:
 				fallthrough
 

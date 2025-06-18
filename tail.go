@@ -7,6 +7,7 @@ import (
 	"bufio"
 	"errors"
 	"fmt"
+	"github.com/visforest/tail/tomb"
 	"io"
 	"io/ioutil"
 	"log"
@@ -15,10 +16,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/hpcloud/tail/ratelimiter"
-	"github.com/hpcloud/tail/util"
-	"github.com/hpcloud/tail/watch"
-	"gopkg.in/tomb.v1"
+	"github.com/visforest/tail/ratelimiter"
+	"github.com/visforest/tail/util"
+	"github.com/visforest/tail/watch"
 )
 
 var (

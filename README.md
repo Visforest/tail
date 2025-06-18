@@ -1,5 +1,8 @@
-[![Build Status](https://travis-ci.org/hpcloud/tail.svg)](https://travis-ci.org/hpcloud/tail)
+[![Build Status](https://travis-ci.org/visforest/tail.svg)](https://travis-ci.org/visforest/tail)
 [![Build status](https://ci.appveyor.com/api/projects/status/vrl3paf9md0a7bgk/branch/master?svg=true)](https://ci.appveyor.com/project/Nino-K/tail/branch/master)
+
+
+NOTE: This repo is forked from [https://github.com/hpcloud/tail](https://github.com/hpcloud/tail) (main branch) which hasn't been maintained for long time. I abandoned vendor, and fixed its import problem. 
 
 # Go package for tail-ing files
 
@@ -12,7 +15,7 @@ for line := range t.Lines {
 }
 ```
 
-See [API documentation](http://godoc.org/github.com/hpcloud/tail).
+See [API documentation](http://godoc.org/github.com/visforest/tail).
 
 ## Log rotation
 
@@ -21,8 +24,8 @@ designed to work with log rotation tools.
 
 ## Installing
 
-    go get github.com/hpcloud/tail/...
+    go get github.com/visforest/tail/...
 
 ## Windows support
 
-This package [needs assistance](https://github.com/hpcloud/tail/labels/Windows) for full Windows support.
+This package [needs assistance](https://github.com/visforest/tail/labels/Windows) for full Windows support.

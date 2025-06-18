@@ -1,9 +1,10 @@
+//go:build windows
 // +build windows
 
 package tail
 
 import (
-	"github.com/hpcloud/tail/winfile"
+	"github.com/visforest/tail/winfile"
 	"os"
 )
 
