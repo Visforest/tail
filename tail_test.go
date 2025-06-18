@@ -8,14 +8,13 @@ package tail
 
 import (
 	_ "fmt"
-	"io/ioutil"
 	"os"
 	"strings"
 	"testing"
 	"time"
 
-	"github.com/hpcloud/tail/ratelimiter"
-	"github.com/hpcloud/tail/watch"
+	"github.com/visforest/tail/ratelimiter"
+	"github.com/visforest/tail/watch"
 )
 
 func init() {
@@ -79,7 +78,7 @@ func TestWaitsForFileToExistRelativePath(t *testing.T) {
 	go tailTest.VerifyTailOutput(tail, []string{"hello", "world"}, false)
 
 	<-time.After(100 * time.Millisecond)
-	if err := ioutil.WriteFile("test.txt", []byte("hello\nworld\n"), 0600); err != nil {
+	if err := os.WriteFile("test.txt", []byte("hello\nworld\n"), 0600); err != nil {
 		tailTest.Fatal(err)
 	}
 	tailTest.Cleanup(tail, true)
@@ -455,14 +454,14 @@ func NewTailTest(name string, t *testing.T) TailTest {
 }
 
 func (t TailTest) CreateFile(name string, contents string) {
-	err := ioutil.WriteFile(t.path+"/"+name, []byte(contents), 0600)
+	err := os.WriteFile(t.path+"/"+name, []byte(contents), 0600)
 	if err != nil {
 		t.Fatal(err)
 	}
 }
 
 func (t TailTest) AppendToFile(name string, contents string) {
-	err := ioutil.WriteFile(t.path+"/"+name, []byte(contents), 0600|os.ModeAppend)
+	err := os.WriteFile(t.path+"/"+name, []byte(contents), 0600|os.ModeAppend)
 	if err != nil {
 		t.Fatal(err)
 	}

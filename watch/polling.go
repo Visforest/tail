@@ -4,12 +4,12 @@
 package watch
 
 import (
+	"github.com/visforest/tail/tomb"
 	"os"
 	"runtime"
 	"time"
 
-	"github.com/hpcloud/tail/util"
-	"gopkg.in/tomb.v1"
+	"github.com/visforest/tail/util"
 )
 
 // PollingFileWatcher polls the file for changes.
